@@ -71,7 +71,6 @@ app.post('/api/persons', (request, response, next) => {
     newPerson.save()
     .then(result => {
         console.log('person saved!')
-        mongoose.connection.close()
         response.json(person)
     })
     .catch(error => next(error))

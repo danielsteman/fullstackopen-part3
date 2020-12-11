@@ -15,7 +15,7 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFind
 const personSchema = new mongoose.Schema({
     name: {
         type: String,
-        unique: true,
+        index: true,
         minlength: 3
     },
     number: {
@@ -23,8 +23,6 @@ const personSchema = new mongoose.Schema({
         minlength: 8
     }
 })
-
-personSchema.plugin(uniqueValidator);
 
 personSchema.set('toJSON', {
     transform: (document, returnedObject) => {
